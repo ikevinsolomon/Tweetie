@@ -2,7 +2,7 @@
 
 namespace KevinSolomon\Tweetie;
 
-class SkeletonClass
+class Tweetie
 {
     /**
      * Create a new Skeleton Instance
