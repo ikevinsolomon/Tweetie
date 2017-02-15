@@ -1,0 +1,49 @@
+{
+    "name": "KevinSolomon/Tweetie",
+    "type": "library",
+    "description": "Twitter client",
+    "keywords": [
+        "KevinSolomon",
+        "Tweetie"
+    ],
+    "homepage": "https://github.com/KevinSolomon/Tweetie",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Solomon",
+            "email": "ikevinsolomon@gmail.com",
+            "homepage": "www.kevinsolomon.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.0||~5.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "KevinSolomon\\Tweetie\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KevinSolomon\\Tweetie\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
