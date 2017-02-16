@@ -13,8 +13,13 @@ class TweetieTest extends TestCase
      */
     public function setUp()
     {
-        $dotenv = new Dotenv(__DIR__.'/../');
-        $dotenv->load();
+        try {
+            $dotenv = new Dotenv(__DIR__.'/../');
+            $dotenv->load();
+        } catch (Exception $e) {
+             echo 'Oops we weren\'t able to load the .env file, if this is being run on travis CI we have set the env variable in the settings panel ';
+        }
+
         $this->tweetie_client = new Tweetie(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'));
     }
 
