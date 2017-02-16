@@ -1,8 +1,10 @@
 <?php
 
-namespace League\Skeleton;
+namespace KevinSolomon\Tweetie;
+use PHPUnit\Framework\TestCase;
 
-class ExampleTest extends \PHPUnit_Framework_TestCase
+
+class TweetieTest extends TestCase
 {
     /**
      * Test that true does in fact equal true
