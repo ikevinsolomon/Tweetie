@@ -30,7 +30,7 @@ $ composer require KevinSolomon/Tweetie
 
 ``` php
 $tweetie_client = new KevinSolomon\Tweetie();
-echo $tweetie_client->getSearchResults('#custserv', 20);
+echo $tweetie_client->getSearchResults('#custserv', 100);
 ```
 
 ## Change log

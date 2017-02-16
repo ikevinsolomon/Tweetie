@@ -95,7 +95,7 @@ class Tweetie
 
         foreach ($all_tweets as $tweet)
         {
-            if ($tweet['retweet_count'] > 1)
+            if ($tweet['retweet_count'] >= 1)
             {
                 array_push($this->retweeted_tweets, $tweet);
             }
