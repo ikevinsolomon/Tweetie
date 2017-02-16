@@ -67,14 +67,14 @@ class Tweetie
      *
      * @return \GuzzleHttp\Message\ResponseInterface|null
      */
-    public function getTweets($api_endpoint_url, $parameters = [])
+    public function getApiResponse($api_endpoint_url, $parameters = [])
     {
         return $this->guzzle_client->get($api_endpoint_url, ['query' => $parameters]);
     }
 
     /**
      *
-     * @param string $query_operator
+     * @param string $query
      *
      * @param string $result_type
      *
@@ -82,30 +82,27 @@ class Tweetie
      *
      * @return \GuzzleHttp\Message\ResponseInterface|null
      */
-    public function getSearchResults($query_operator, $tweet_count = '10', $result_type = 'recent')
+    public function getSearchResults($query, $tweet_count = '10', $result_type = 'recent', $language = 'en')
     {
         $query_parameters = [
-            'q'           => urlencode($query_operator),
-            'lang'        => 'en',
+            'q'           => urlencode($query),
+            'lang'        => $language,
             'count'       => $tweet_count,
             'result_type' => $result_type
         ];
 
-        $api_response  = json_decode($this->getTweets('/1.1/search/tweets.json',
-        $query_parameters), true);
-
-        $all_tweets = $api_response['statuses']
-
+        $all_tweets  = $this->getApiResponse('/1.1/search/tweets.json', $query_parameters)->json()['statuses'];
 
         foreach ($all_tweets as $tweet)
         {
-            if ($tweet['retweet_count'] > 0 && $tweet['retweeted'])
+            if ($tweet['retweet_count'] > 1)
             {
                 array_push($this->retweeted_tweets, $tweet);
             }
         }
 
         return $this->retweeted_tweets;
+
     }
 
 }
