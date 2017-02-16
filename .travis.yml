@@ -20,6 +20,7 @@ matrix:
 before_script:
   - env >> .env
   - cat .env
+  - composer install
 
 script:
   - phpunit tests/TweetieTest.php
