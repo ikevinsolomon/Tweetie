@@ -80,7 +80,9 @@ class Tweetie
      *
      * @param string $count
      *
-     * @return \GuzzleHttp\Message\ResponseInterface|null
+     * @param string $language
+     *
+     * @return array $this->retweeted_tweets
      */
     public function getSearchResults($query, $tweet_count = '10', $result_type = 'recent', $language = 'en')
     {

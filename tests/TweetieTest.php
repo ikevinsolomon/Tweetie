@@ -9,7 +9,7 @@ class TweetieTest extends TestCase
     private $tweetie_client;
 
     /**
-     * Test that true does in fact equal true
+     * Setup tweetie
      */
     public function setUp()
     {
