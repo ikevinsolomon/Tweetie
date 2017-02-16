@@ -18,7 +18,8 @@ matrix:
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
-  - env >> .env
+  - echo "TWITTER_CONSUMER_KEY="$TWITTER_CONSUMER_KEY > .env
+  - echo "TWITTER_CONSUMER_SECRET="$TWITTER_CONSUMER_SECRET >> .env
   - cat .env
   - composer install
 
