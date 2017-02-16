@@ -12,8 +12,6 @@ A simple client to wrap around Twitters API's
 ## Structure
 
 ```
-bin/
-config/
 src/
 tests/
 vendor/
@@ -32,7 +30,7 @@ $ composer require KevinSolomon/Tweetie
 
 ``` php
 $tweetie_client = new KevinSolomon\Tweetie();
-echo $tweetie_client->echoPhrase('Hello, World!');
+echo $tweetie_client->getSearchResults('#custserv', 20);
 ```
 
 ## Change log
